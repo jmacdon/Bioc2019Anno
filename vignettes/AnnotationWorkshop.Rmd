@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Bioconductor Annotation Resources"
 author: "James W. MacDonald and Lori Shepherd"
-date: 25-27 July | Bioc 2018
+date: 24-27 June | Bioc 2019
 output:
   ioslides_presentation:
     fig_retina: null
@@ -37,7 +37,7 @@ ul > li:before {
 
 ```{r setup, include = FALSE, warning = FALSE}
 
-library(Bioc2018Anno)
+library(Bioc2019Anno)
 library(hugene20sttranscriptcluster.db)
 library(EnsDb.Mmusculus.v79)
 library(org.Hs.eg.db)
@@ -90,7 +90,7 @@ knitr::include_graphics("./eset.png")
 
 ```{r, warning = FALSE}
 
-load(system.file("extdata/eset.Rdata", package = "Bioc2018Anno"))
+load(system.file("extdata/eset.Rdata", package = "Bioc2019Anno"))
 eset
 
 ```

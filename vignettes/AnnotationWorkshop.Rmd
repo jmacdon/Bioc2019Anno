@@ -8,7 +8,7 @@ output:
 vignette: >
   %\VignetteIndexEntry{Introduction to Bioconductor Annotation Resources}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding[UTF-8]{inputenc}
+  %\VignetteEncoding[ut8]{inputenc}
 
 ---
 	
@@ -154,11 +154,7 @@ knitr::include_graphics(file.path(system.file(package = "Bioc2019Anno", "vignett
 
 ```{r, warning = FALSE}
 
-<<<<<<< HEAD
-load(file.path(system.file(package = "Bioc2018Anno", "extdata"), "eset.Rdata"))
-=======
-load(system.file("extdata/eset.Rdata", package = "Bioc2019Anno"))
->>>>>>> 6e4077016f02e49849de7a2631e82af46f65b7c9
+load(file.path(system.file(package = "Bioc2019Anno", "extdata"), "eset.Rdata"))
 eset
 
 ```
@@ -663,7 +659,7 @@ inner_join(tbl(src, "id"), tbl(src, "ranges_gene")) %>%
 
 * Show all the alias for "NAT2" in the database.
 
-* Display Gene ontology (GO) information for gene symbol “NAT2”.
+* Display Gene ontology (GO) information for gene symbol "Nat2".
 
 
 

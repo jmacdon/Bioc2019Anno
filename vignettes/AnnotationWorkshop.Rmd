@@ -1,39 +1,103 @@
 ---
-title: "Introduction to Bioconductor Annotation Resources"
-author: "James W. MacDonald and Lori Shepherd"
-date: 25-27 July | Bioc 2018
 output:
-  ioslides_presentation:
-    fig_retina: null
-    css: style.css
-    widescreen: false
+  rmarkdown::html_document:
+   highlight: pygments
+   toc: true
+   toc_depth: 3
+   fig_width: 5
 vignette: >
   %\VignetteIndexEntry{Introduction to Bioconductor Annotation Resources}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  %\VignetteEncoding[UTF-8]{inputenc}
 
 ---
+	
+# Introduction to Bioconductor Annotation Resources
 
-<style scoped>
-ul > li:before {
-    color: #1a81c2;
-    vertical-align: middle;
-    font-family: "Arial Black";
-    font-weight: 900;
-    margin-left: -.85em;
-	}
-	</style>
+Bioc 2019: 24-27 June
+
+## Instructors
+
+* James W. MacDonald (jmacdon@umich.edu)
+* Lori Shepherd (lori.shepherd@roswellpark.org)
 
 
-## Goals for this workshop
+## Workshop Description
 
-- Learn about various annotation package types
+There are various annotation packages provided by the Bioconductor
+project that can be used to incorporate additional information to
+results from high-throughput experiments. This can be as simple as
+mapping Ensembl IDs to corresponding HUGO gene symbols, to much more
+complex queries involving multiple data sources. In this workshop we
+will cover the various classes of annotation packages, what they
+contain, and how to use them efficiently. 
 
-- Learn the basics of querying these resources
+### Prerequisites
 
-- Discuss annotations in regard to Bioc data structures
+* Basic knowledge of R syntax
+* Basic understanding of the various annotation sources (NCBI, EBI/EMBL)
 
-- Get in some practice
+Useful background reading
+
+* The
+  [AnnotationDbi](https://www.bioconductor.org/packages/release/bioc/vignettes/AnnotationDbi/inst/doc/IntroToAnnotationPackages.pdf)
+  vignette.
+* The
+  [biomaRt](https://www.bioconductor.org/packages/release/bioc/vignettes/biomaRt/inst/doc/biomaRt.html)
+  vignette.
+* The
+  [GenomicFeatures](https://www.bioconductor.org/packages/release/bioc/vignettes/GenomicFeatures/inst/doc/GenomicFeatures.pdf)
+  vignette.
+  
+
+### Workshop Participation
+
+After each type of annotation package is introduced, students will be
+given the opportunity to practice making their own queries. 
+
+### _R_ / _Bioconductor_ packages used
+
+* AnnotationDbi
+* AnnotationHub
+* BSgenome
+* biomaRt
+* ensembldb
+* org.Hs.eg.db
+* TxDb.Hsapiens.UCSC.hg19.knownGene
+* EnsDb.Hsapiens.v79
+* EnsDb.Mmusculus.v79
+* Homo.sapiens 
+* BSgenome.Hsapiens.UCSC.hg19
+* hugene20sttranscriptcluster.db
+
+
+## Workshop goals and objectives
+
+Annotating data is a complex task. For any high-throughput experiment
+the analyst usually starts with a set of identifiers for each thing
+that was measured, and in order to make the results useful to
+collaborators these identifiers need to be mapped to other identifiers
+that are either more familiar to collaborators, or that can be used
+for further analyses. As an example, RNA-Seq data may only have Entrez
+Gene IDs for each gene measured, and as part of the output you may
+want to include the gene symbols, which are more likely to be familiar
+to a Biologist.
+
+### Learning goals
+
+* Understand what sort of annotation data are available
+* Understand the difference between annotation sources (NCBI and EBI/EMBL)
+* Gain familiarity with the various ways to query annotation packages
+* Get some practice making queries
+
+### Learning objectives
+
+* Be able to use select and mapIds to map between identifiers
+* Be able to extract data from TxDb and EnsDb packages
+* Be able to make queries using biomaRt
+* Extract and utilize various data from AnnotationHub
+
+## Annotation Workshop
 
 ```{r setup, include = FALSE, warning = FALSE}
 
@@ -57,7 +121,7 @@ Map a known ID to other functional or positional information
 
 ```{r, out.width = "75%", echo = FALSE}
 
-knitr::include_graphics("./mapping.png")
+knitr::include_graphics(file.path(system.file(package = "Bioc2019Anno", "vignettes"), "mapping.png"))
 
 ```
 
@@ -69,7 +133,7 @@ information
 
 ```{r, out.width = "75%", echo = FALSE}
 
-knitr::include_graphics("./boxes.png")
+knitr::include_graphics(file.path(system.file(package = "Bioc2019Anno", "vignettes"), "boxes.png"))
 
 ```
 
@@ -81,7 +145,7 @@ The end result might be as simple as a data.frame or HTML table, or as complex a
 
 ```{r, out.width = "75%", echo = FALSE}
 
-knitr::include_graphics("./eset.png")
+knitr::include_graphics(file.path(system.file(package = "Bioc2019Anno", "vignettes"),"eset.png"))
 
 ```
 
@@ -90,7 +154,7 @@ knitr::include_graphics("./eset.png")
 
 ```{r, warning = FALSE}
 
-load(system.file("extdata/eset.Rdata", package = "Bioc2018Anno"))
+load(file.path(system.file(package = "Bioc2018Anno", "extdata"), "eset.Rdata"))
 eset
 
 ```
@@ -473,7 +537,7 @@ annotations are GRanges, so you can subset by genomic locations:
 
 ```{r, out.width = "65%", echo = FALSE}
 
-knitr::include_graphics("./subset.png")
+knitr::include_graphics(file.path(system.file(package = "Bioc2019Anno", "vignettes"), "subset.png"))
 
 ```
 

@@ -101,7 +101,7 @@ to a Biologist.
 
 ```{r setup, include = FALSE, warning = FALSE}
 
-library(Bioc2018Anno)
+library(Bioc2019Anno)
 library(hugene20sttranscriptcluster.db)
 library(EnsDb.Mmusculus.v79)
 library(org.Hs.eg.db)
@@ -154,7 +154,11 @@ knitr::include_graphics(file.path(system.file(package = "Bioc2019Anno", "vignett
 
 ```{r, warning = FALSE}
 
+<<<<<<< HEAD
 load(file.path(system.file(package = "Bioc2018Anno", "extdata"), "eset.Rdata"))
+=======
+load(system.file("extdata/eset.Rdata", package = "Bioc2019Anno"))
+>>>>>>> 6e4077016f02e49849de7a2631e82af46f65b7c9
 eset
 
 ```

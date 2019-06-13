@@ -612,6 +612,7 @@ head(genes(Homo.sapiens, columns = c("ENTREZID","ALIAS","UNIPROT")),4)
 library(Organism.dplyr)
 
 # src = src_organism("TxDb.Hsapiens.UCSC.hg19.knownGene")
+# ?src_organism
 src <- src_organism(dbpath = hg38light())
 src
 ```
